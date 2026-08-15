@@ -29,13 +29,15 @@ jobs:
     - name: Build package
       run: mvn package -DskipTests
     
-    - name: Upload build artifacts
-      if: success()
-      uses: actions/upload-artifact@v4
+    - name: Create Release and Upload JAR
+      if: success() && github.event_name == 'push'
+      uses: softprops/action-gh-release@v1
       with:
-        name: gallery-app
-        path: target/*.jar
-        retention-days: 30
+        files: target/*.jar
+        tag_name: v${{ github.run_number }}
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   code-quality:
     runs-on: ubuntu-latest

@@ -56,8 +56,17 @@ mvn clean package
 ```
 
 ### 4. Run the Application
+
+**Option A: Using Maven**
 ```bash
 mvn spring-boot:run
+```
+
+**Option B: Using Pre-built JAR**
+
+Download the latest compiled JAR from [Releases](https://github.com/burnet01/Baby-Shower-ari/releases) and run:
+```bash
+java -jar gallery-1.0.0.jar
 ```
 
 The application will start at `http://localhost:8080`
@@ -109,7 +118,11 @@ Configure PIN requirements in `src/main/java/com/tennantari/gallery/config/Secur
 - Verify API credentials are configured correctly
 - Check internet connectivity
 
-## 📝 License
+## � Releases
+
+Compiled JAR files are available in [GitHub Releases](https://github.com/burnet01/Baby-Shower-ari/releases). Download the latest release and run it locally without needing Maven installed.
+
+## �📝 License
 
 [Add your license here]
 
